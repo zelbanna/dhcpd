@@ -1,0 +1,15 @@
+services:
+
+# DHCP Server
+ dhcpd:
+  image: zelbanna/dhcpd:latest
+  init: true
+  restart: unless-stopped
+  volumes:
+   - localvol:/data
+  network_mode: host
+  command: ["eth0","eth2"]
+
+volumes:
+ rims:
+  name: localvol
